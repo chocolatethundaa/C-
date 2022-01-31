@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::string;
 using std::endl;
@@ -9,23 +10,26 @@ using std::cin;
 
 class Person{//class for consumer and sellers
 protected:
-    string name;
+    string firstName;
+    string lastName;
     double amtOfMoney;
     string DOB;
     int SSN;
     bool isConsumer;
 public:   
     Person(){
-        name = "";
+        
     }
-    Person(string Name, int ssn){
-        name =Name;
+    Person(string firstN,string lastN, int ssn){
+        firstName = firstN;
+        lastName = lastN;
         SSN = ssn;
     }
    
 
     void getInfo(){//retrieves and prints info of specific user
-        cout<< name<<endl;
+        string name = lastName +", "+ firstName;
+        cout<< name <<endl;
         cout<< DOB<<endl;
         cout<< "XXX-XX-"<< SSN<<endl;
         cout<< "Currently in your robo wallet you have $"<< amtOfMoney<< "."<<endl;
@@ -34,8 +38,10 @@ public:
         }
     }
     void setUpAccount(){
-        cout <<"What is your name?: ";
-        cin >> name;
+        cout <<"What is your first name?: ";
+        cin >> firstName;
+        cout <<"What is your last name?: ";
+        cin >> lastName;
         cout<< endl;
         cout << "Date of birth?: ";
         cin >>DOB;
@@ -111,13 +117,27 @@ public:
     }
 };
 
+void print(void* data, char type){
+    switch(type){
+        case 'D':
+            for(int i = 0; i<((std::vector<Person>*)data)->size();i++){
+                    (std::vector<Person>*)data[i]->getInfo();
+            }
+    }
 
+}
 
 int main(){
 
+std::vector<Person> userDataBase;
+int limit =  2;
 
-Person User001;
-User001.setUpAccount();
+for (int i=0;i<limit;i++){
+    userDataBase[i].setUpAccount();
+}
+
+//User001.setUpAccount();
+//User001.getInfo();
 
  Robot Exo("Chappy", "Andry Canel");
  Exo.getInfo();
