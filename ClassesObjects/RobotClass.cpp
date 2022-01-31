@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 
-
-using namespace std;
+using std::string;
+using std::endl;
+using std::cout;
+using std::cin;
+//using namespace std;
 
 
 class Robot{
@@ -18,10 +21,12 @@ public:
     }
 
     void getInfo(){
-        cout<< "This robot name is "<< name << " and the owner is "<< ownerName<< " ."<< endl;
+        cout<< "This robot name is "<< name << " and the owner is "<< ownerName<< "."<< endl;
     }
 
 };
+
+
 
 int main(){
 
