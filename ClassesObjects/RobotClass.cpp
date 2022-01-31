@@ -26,12 +26,27 @@ public:
 
 };
 
+class ArmRobot: public Robot{
+private:
+int degreesOfFreedom;
+double weight;
+double height;
+
+public:
+    ArmRobot(string Name, string OwnerName): Robot(Name,OwnerName){
+
+    }
+};
+
 
 
 int main(){
 
  Robot Exo("Chappy", "Andry Canel");
  Exo.getInfo();
+
+ArmRobot Hands("Hands","Jane Doe");
+Hands.getInfo();
 
  system("pause>0"); 
 
