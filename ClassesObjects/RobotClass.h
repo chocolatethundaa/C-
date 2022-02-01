@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <Person.h>
+
 
 using std::string;
 using std::endl;
@@ -10,6 +10,7 @@ using std::cin;
 using std::vector;
 //using namespace std;
 
+class Person;
 
 class Robot{//class for the actual robots
 protected:

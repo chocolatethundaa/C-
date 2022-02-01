@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <RobotClass.h>
-#include <Person.h>
+#include "RobotClass.h"
+#include "Person.h"
 using std::string;
 using std::endl;
 using std::cout;
@@ -14,15 +14,21 @@ using std::vector;
 void print(void* data, char type){
     switch(type){
         case 'P':
+        {
             vector<Person>& v = *reinterpret_cast<vector<Person> *>(data);
                std::vector<Person>::iterator it;
                for(it = v.begin(); it!=v.end();++it){
                    it->getInfo();
                }
+        
+        }
 
         case 'i':
+        {
             cout << *((int*)data) <<endl;
+
         }    
+     }    
              
            
     

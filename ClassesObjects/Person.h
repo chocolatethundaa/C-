@@ -2,14 +2,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <RobotClass.h>
+
 using std::string;
 using std::endl;
 using std::cout;
 using std::cin;
 using std::vector;
 
-
+class Robot;
 
 class Person{//class for consumer and sellers
 protected:
