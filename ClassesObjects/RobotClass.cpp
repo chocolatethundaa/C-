@@ -120,10 +120,18 @@ public:
 
 void print(void* data, char type){
     switch(type){
-        case 'D':
-            for(int i = 0; i<((std::vector<Person>*)data)->size();i++){
-                   cout<< i <<endl;
-            }
+        case 'V':
+                int x  = *((int*)data);
+                cout<< x++ <<endl;
+            /*  for(int i = 0; i<((std::vector<Person>*)data)->size();i++){
+                  Person x = ((Person*)data[i]); 
+                  reinterpret_cast <Person*>(&data[i])
+            } */
+            //for(Person x: static_cast<std::vector<Person>*>(data)){
+
+            
+             
+           
     }
 
 }
@@ -131,14 +139,14 @@ void print(void* data, char type){
 int main(){
 
 std::vector<Person> userDataBase;
-int limit =  2;
+int limit =  1;
 
 for (int i=0;i<limit;i++){
     Person User;
     userDataBase.push_back(User);
     userDataBase[i].setUpAccount();
 }
-print(&userDataBase,'D');
+print(&userDataBase,'V');
 
 //User001.setUpAccount();
 //User001.getInfo();
