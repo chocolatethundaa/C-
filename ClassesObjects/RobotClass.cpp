@@ -40,6 +40,7 @@ public:
     void setUpAccount(){
         cout <<"What is your first name?: ";
         cin >> firstName;
+        cout << endl;
         cout <<"What is your last name?: ";
         cin >> lastName;
         cout<< endl;
@@ -121,7 +122,7 @@ void print(void* data, char type){
     switch(type){
         case 'D':
             for(int i = 0; i<((std::vector<Person>*)data)->size();i++){
-                    (std::vector<Person>*)data[i]->getInfo();
+                   cout<< i <<endl;
             }
     }
 
@@ -133,13 +134,16 @@ std::vector<Person> userDataBase;
 int limit =  2;
 
 for (int i=0;i<limit;i++){
+    Person User;
+    userDataBase.push_back(User);
     userDataBase[i].setUpAccount();
 }
+print(&userDataBase,'D');
 
 //User001.setUpAccount();
 //User001.getInfo();
 
- Robot Exo("Chappy", "Andry Canel");
+/*  Robot Exo("Chappy", "Andry Canel");
  Exo.getInfo();
 
 ArmRobot Hands("Hands","Jane Doe");
@@ -147,7 +151,7 @@ Hands.getInfo();
 Hands.wave();
 Hands.wave();
 Hands.wave();
-
+ */
 
 
  system("pause>0"); 
