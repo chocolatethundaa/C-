@@ -15,9 +15,9 @@ void print(void* data, char type){
     switch(type){
         case 'P':
         {
-            vector<Person>& v = *reinterpret_cast<vector<Person> *>(data);
-               std::vector<Person>::iterator it;
-               for(it = v.begin(); it!=v.end();++it){
+            vector<Person*> *v = reinterpret_cast<vector<Person*> *>(data);
+               std::vector<Person*>::iterator it;
+               for(*it = v.begin(); *it!=v->end();++it){
                    it->getInfo();
                }
         
@@ -40,13 +40,13 @@ void print(void* data, char type){
 
 int main(){
 
-std::vector<Person> userDataBase;
+std::vector<Person*> userDataBase;
 int limit =  2;
 
 for (int i=0;i<limit;i++){
     Person *User = new Person;
-    userDataBase.push_back(*User);
-    userDataBase[i].setUpAccount();
+    userDataBase.push_back(User);
+    userDataBase[i]->setUpAccount();
 }
 print(&userDataBase,'P');
 cout << &userDataBase << "firstOne"<<endl;
