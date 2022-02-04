@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
 
 using std::cout;
 using std::cin;
@@ -33,11 +34,11 @@ void mainPrint (void* data, char type){
             break;
         }
         case 'a':{
-            int size = 5;
+            int size = *(int*)data;
             int* address = (int*)data;
             for (int i = 0; i < size;i++){
                 int value = *(address+i);
-                cout <<  value <<endl;
+                cout <<  value << " ";
             }
             break;
         }
@@ -47,7 +48,16 @@ void mainPrint (void* data, char type){
               std::vector<int>::iterator it;
                for(it = list->begin(); it!=list->end();++it){
 
-                cout << *it << ", ";
+                cout << *it << " ";
+               }
+               break;
+        }
+         case 'l':{
+            std::list<int>* list = reinterpret_cast<std::list<int>*>(data);
+              std::list<int>::iterator it;
+               for(it = list->begin(); it!=list->end();++it){
+
+                cout << *it << " ";
                }
                break;
         }
@@ -86,7 +96,8 @@ std::string word = "hi my name is Andry";
 mainPrint(&word,'s');
 int arr[] = {2,4,5,6,7};
 std::vector<int> arr2 ={2,4,5,6,7}; 
-mainPrint(&arr2,'v');
+std::list<int> arr3 = {2,4,5,6,7};
+mainPrint(&arr3,'l');
 
 system("pause>0");
 
