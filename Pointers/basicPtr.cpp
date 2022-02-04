@@ -13,9 +13,21 @@ void printChar (void* cPtr){//taking in a void pointer
 }
 
 
+void getOddsandEvens(int nums[],int size, int* odds, int* evens){
+
+    for(int i = 1; i <size;i++){
+        if(nums[i]%2==0){
+            *evens++;
+        }
+        else{
+            *odds++;
+        }
+    }
+}
 
 
-void mainPrint (void* data, char type){
+
+void print (void* data, char type){
     switch(type){
         case 'i':{
             cout << *((int*)data)<<endl;
@@ -92,12 +104,19 @@ char bruh = 'v';
 printChar(&bruh);
  */
 
-std::string word = "hi my name is Andry";
-mainPrint(&word,'s');
+/* std::string word = "hi my name is Andry";
+print(&word,'s');
 int arr[] = {2,4,5,6,7};
 std::vector<int> arr2 ={2,4,5,6,7}; 
 std::list<int> arr3 = {2,4,5,6,7};
-mainPrint(&arr3,'l');
+print(&arr3,'l'); */
+
+int nums[10] = {2,1,-15,40,53,13,6,21,78,100};
+int odds = nums[0];
+int evens = nums[0];
+getOddsandEvens(nums,10,&odds,&evens);
+
+cout << "There are " << odds << " odd number(s) and " << evens << " even number(s)."<< endl;
 
 system("pause>0");
 
