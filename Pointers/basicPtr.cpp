@@ -13,14 +13,15 @@ void printChar (void* cPtr){//taking in a void pointer
 }
 
 
-void getOddsandEvens(int nums[],int size, int* odds, int* evens){
+void getMaxOddsandMaxEvens(int nums[],int size, int* odds, int* evens){
 
     for(int i = 1; i <size;i++){
-        if(nums[i]%2==0){
-            *evens++;
+        if(nums[i]%2==0 && nums[i]> *evens){
+           
+            *evens = nums[i];
         }
-        else{
-            *odds++;
+        else if(nums[i] > *odds){
+            *odds = nums[i];
         }
     }
 }
@@ -114,9 +115,9 @@ print(&arr3,'l'); */
 int nums[10] = {2,1,-15,40,53,13,6,21,78,100};
 int odds = nums[0];
 int evens = nums[0];
-getOddsandEvens(nums,10,&odds,&evens);
+getMaxOddsandMaxEvens(nums,10,&odds,&evens);
 
-cout << "There are " << odds << " odd number(s) and " << evens << " even number(s)."<< endl;
+cout << "The highest odd number is " << odds << " the highest even number is " << evens << "."<< endl;
 
 system("pause>0");
 
