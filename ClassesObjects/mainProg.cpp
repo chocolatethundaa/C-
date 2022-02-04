@@ -41,7 +41,7 @@ void print(void* data, char type){
 int main(){
 
 std::vector<Person> userDataBase;
-int limit =  1;
+int limit =  2;
 
 for (int i=0;i<limit;i++){
     Person *User = new Person;
@@ -49,8 +49,17 @@ for (int i=0;i<limit;i++){
     userDataBase[i].setUpAccount();
 }
 print(&userDataBase,'P');
+cout << &userDataBase << "firstOne"<<endl;
+for (int i=0;i<limit;i++){
 
-userDataBase.clear();
+    if(&userDataBase[i]){
+        delete &userDataBase[i];
+      // &userDataBase[i] = NULL;
+    }
+}
+
+print(&userDataBase,'P');
+cout << &userDataBase <<endl;
 
 //User001.setUpAccount();
 //User001.getInfo();
