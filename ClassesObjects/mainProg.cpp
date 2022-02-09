@@ -22,7 +22,6 @@ void print(void* data, char type){
                }
         
         }
-
         case 'i':
         {
             cout << *((int*)data) <<endl;
